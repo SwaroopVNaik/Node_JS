@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FitZone Gym</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .overlay {
+            background: rgba(0,0,0,0.6);
+            padding: 50px;
+            border-radius: 10px;
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">FitZone</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#membership">Membership</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="hero">
+    <div class="overlay">
+        <h1 class="display-4 fw-bold">Transform Your Body</h1>
+        <p class="lead">Join FitZone Gym and start your fitness journey today</p>
+        <a href="#membership" class="btn btn-primary btn-lg mt-3">Join Now</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section-padding">
+    <div class="container text-center">
+        <h2 class="mb-4">About Us</h2>
+        <p class="lead">
+            At FitZone Gym, we provide top-class equipment, expert trainers, and a motivating environment
+            to help you achieve your fitness goals. Whether you're a beginner or a pro, we’ve got you covered.
+        </p>
+    </div>
+</section>
+
+<!-- Membership Section -->
+<section id="membership" class="section-padding bg-light">
+    <div class="container text-center">
+        <h2 class="mb-5">Membership Plans</h2>
+
+        <div class="row">
+
+            <!-- Basic Plan -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="card-title">Basic</h4>
+                        <h2 class="text-primary">₹999/month</h2>
+                        <p>Access to gym equipment</p>
+                        <p>1 Trainer Session</p>
+                        <a href="#" class="btn btn-outline-primary">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standard Plan -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow border-primary">
+                    <div class="card-body">
+                        <h4 class="card-title">Standard</h4>
+                        <h2 class="text-primary">₹1999/month</h2>
+                        <p>All Basic Features</p>
+                        <p>Personal Trainer</p>
+                        <p>Diet Plan</p>
+                        <a href="#" class="btn btn-primary">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="card-title">Premium</h4>
+                        <h2 class="text-primary">₹2999/month</h2>
+                        <p>All Standard Features</p>
+                        <p>24/7 Access</p>
+                        <p>Advanced Training</p>
+                        <a href="#" class="btn btn-outline-primary">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3">
+    <p>© 2026 FitZone Gym | All Rights Reserved</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

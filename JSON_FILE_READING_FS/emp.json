@@ -1,0 +1,82 @@
+[
+  {
+    "eid": 1,
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "department": "Engineering",
+    "salary": 75000,
+    "position": "Software Engineer"
+  },
+  {
+    "eid": 2,
+    "name": "Bob Smith",
+    "email": "bob.smith@example.com",
+    "department": "Marketing",
+    "salary": 65000,
+    "position": "Marketing Manager"
+  },
+  {
+    "eid": 3,
+    "name": "Charlie Brown",
+    "email": "charlie.brown@example.com",
+    "department": "Sales",
+    "salary": 60000,
+    "position": "Sales Representative"
+  },
+  {
+    "eid": 4,
+    "name": "Diana Prince",
+    "email": "diana.prince@example.com",
+    "department": "HR",
+    "salary": 55000,
+    "position": "HR Specialist"
+  },
+  {
+    "eid": 5,
+    "name": "Edward Norton",
+    "email": "edward.norton@example.com",
+    "department": "Finance",
+    "salary": 80000,
+    "position": "Financial Analyst"
+  },
+  {
+    "eid": 6,
+    "name": "Fiona Green",
+    "email": "fiona.green@example.com",
+    "department": "Engineering",
+    "salary": 78000,
+    "position": "Senior Developer"
+  },
+  {
+    "eid": 7,
+    "name": "George Lucas",
+    "email": "george.lucas@example.com",
+    "department": "Operations",
+    "salary": 70000,
+    "position": "Operations Manager"
+  },
+  {
+    "eid": 8,
+    "name": "Hannah Montana",
+    "email": "hannah.montana@example.com",
+    "department": "Marketing",
+    "salary": 62000,
+    "position": "Content Creator"
+  },
+  {
+    "eid": 9,
+    "name": "Ian Fleming",
+    "email": "ian.fleming@example.com",
+    "department": "IT",
+    "salary": 72000,
+    "position": "IT Support Specialist"
+  },
+  {
+    "eid": 10,
+    "name": "Julia Roberts",
+    "email": "julia.roberts@example.com",
+    "department": "Legal",
+    "salary": 85000,
+    "position": "Legal Counsel"
+  }
+]
