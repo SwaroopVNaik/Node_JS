@@ -85,3 +85,37 @@ free memory ?
 
 # note -> converting Obj to String JSON.stringfy()
 # note -> converting String to Object JSON.parse()
+
+# how to read dot.env 
+- 3rd Party Node Modules 
+
+### nodeman 
+### Initialization commands 
+- npm install -g nodemon
+- npm install nodemon
+- npm install dot.env 
+- npm install express 
+
+--------------- these are inbuilt and third party modules 
+
+### nodemon - package : running application/server in dev mode. 
+- ## (no need to stop and start server every time)
+
+### dotenv - package : to maintain and read application env variables like port , host and db_local url, server url , application JWt secret keys to read the configuration variable values
+
+### path - to create and maintain the folder and file paths
+
+### fs - to read and write text files
+
+### http - to create backend server
+
+### RUNNING APPLICATION 
+### Node.js
+- ## node server.js
+- ## nodeman server.js 
+
+### React 
+- ## npm start / npm run dev
+
+### similarly need to run backend also using - npm start 
+### update your package.json file.

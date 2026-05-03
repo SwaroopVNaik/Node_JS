@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechLoka AI — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F0EDE6;--dark:#0C0C0C;--white:#FAFAF8;
+  --accent:#FF3D00;--accent2:#0AEFFF;
+  --serif:'Fraunces',Georgia,serif;--sans:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:var(--sans);overflow-x:hidden;cursor:none}
+
+/* grain */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;opacity:.45}
+
+/* progress */
+#bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:8000;transition:width .08s linear}
+
+/* cursor */
+#cdot{width:7px;height:7px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cring{width:34px;height:34px;border:1.5px solid rgba(12,12,12,.45);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .3s,background .3s;mix-blend-mode:multiply}
+#cring.hov{width:58px;height:58px;border-color:var(--accent);background:rgba(255,61,0,.06)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 64px;transition:padding .4s,background .4s,backdrop-filter .4s}
+nav.scrolled{padding:16px 64px;background:rgba(240,237,230,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(12,12,12,.06)}
+.nav-logo{font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:-.02em;color:var(--dark);text-decoration:none}
+.nav-links{display:flex;gap:44px;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);text-decoration:none;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .35s cubic-bezier(.4,0,.2,1)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
+/* hero */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 64px 80px}
+
+/* blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.13;animation:drift 10s ease-in-out infinite}
+.b1{width:600px;height:600px;background:radial-gradient(circle,#FF3D00,#FF8C00);top:-80px;right:-100px;animation-delay:0s}
+.b2{width:400px;height:400px;background:radial-gradient(circle,#0AEFFF,#0033FF);bottom:-40px;left:80px;animation-delay:-4s}
+.b3{width:280px;height:280px;background:radial-gradient(circle,#9B00FF,#FF00BB);top:40%;left:38%;animation-delay:-7s}
+@keyframes drift{
+  0%,100%{transform:translate(0,0) scale(1);border-radius:62% 38% 34% 66% / 56% 38% 62% 44%}
+  33%{transform:translate(30px,-28px) scale(1.05);border-radius:38% 62% 66% 34% / 44% 62% 38% 56%}
+  66%{transform:translate(-18px,22px) scale(.96);border-radius:52% 48% 38% 62% / 48% 28% 72% 52%}
+}
+
+.hero-inner{position:relative;z-index:2;max-width:960px}
+
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,61,0,.07);border:1px solid rgba(255,61,0,.18);padding:6px 18px;border-radius:100px;font-size:.71rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:38px;opacity:0;animation:fadeUp .8s .2s forwards}
+.pill::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.8)}}
+
+h1{font-family:var(--serif);font-size:clamp(4.2rem,9.5vw,10rem);font-weight:900;line-height:.9;letter-spacing:-.045em;margin-bottom:38px}
+h1 .line{display:block;overflow:hidden}
+h1 .line span{display:block;transform:translateY(110%);animation:slideUp .95s cubic-bezier(.16,1,.3,1) forwards}
+h1 .line:nth-child(1) span{animation-delay:.3s}
+h1 .line:nth-child(2) span{animation-delay:.46s}
+h1 .line:nth-child(3) span{animation-delay:.62s}
+h1 em{font-style:italic;color:var(--accent)}
+@keyframes slideUp{to{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.sub{font-size:1.1rem;font-weight:300;line-height:1.78;color:rgba(12,12,12,.55);max-width:480px;margin-bottom:52px;opacity:0;animation:fadeUp .8s .96s forwards}
+
+.btns{display:flex;gap:14px;align-items:center;opacity:0;animation:fadeUp .8s 1.12s forwards}
+.btn-fill{display:inline-flex;align-items:center;gap:10px;background:var(--dark);color:var(--white);padding:16px 34px;border-radius:100px;font-size:.88rem;font-weight:500;text-decoration:none;letter-spacing:.02em;position:relative;overflow:hidden;transition:transform .3s}
+.btn-fill::before{content:'';position:absolute;inset:0;background:var(--accent);transform:translateX(-101%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.btn-fill:hover::before{transform:translateX(0)}
+.btn-fill span,.btn-fill .arr{position:relative;z-index:1}
+.btn-fill .arr{transition:transform .3s}
+.btn-fill:hover .arr{transform:translateX(5px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(12,12,12,.55);font-size:.88rem;font-weight:500;text-decoration:none;padding:16px 20px;transition:color .3s}
+.btn-ghost:hover{color:var(--accent)}
+
+/* floating stats */
+.stats{position:absolute;bottom:60px;right:64px;display:flex;flex-direction:column;gap:28px;text-align:right;opacity:0;animation:fadeUp .8s 1.35s forwards}
+.stn{font-family:var(--serif);font-size:2.8rem;font-weight:700;line-height:1;color:var(--dark)}
+.stl{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(12,12,12,.35);font-weight:500}
+
+/* scroll hint */
+.sh{position:absolute;bottom:44px;left:64px;display:flex;align-items:center;gap:12px;color:rgba(12,12,12,.35);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:0;animation:fadeUp .8s 1.6s forwards}
+.sh-line{width:38px;height:1px;background:rgba(12,12,12,.18);position:relative;overflow:hidden}
+.sh-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--accent);animation:shAnim 1.7s 2.2s infinite}
+@keyframes shAnim{to{left:100%}}
+
+/* marquee */
+.mwrap{overflow:hidden;padding:40px 0;border-top:1px solid rgba(12,12,12,.08);border-bottom:1px solid rgba(12,12,12,.08)}
+.mtrack{display:flex;gap:52px;width:max-content;animation:marq 24s linear infinite}
+.mtrack:hover{animation-play-state:paused}
+.mitem{font-family:var(--serif);font-size:1.65rem;font-weight:700;font-style:italic;letter-spacing:-.02em;white-space:nowrap;color:rgba(12,12,12,.1);display:flex;align-items:center;gap:36px}
+.mdot{width:7px;height:7px;background:var(--accent);border-radius:50%;opacity:.4;flex-shrink:0}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* feature strip */
+.features{padding:100px 64px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.fc{background:var(--white);padding:46px 38px;border-radius:22px;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.fc:hover::after{transform:scaleX(1)}
+.fc:hover{box-shadow:0 38px 72px rgba(0,0,0,.07)}
+.fc-icon{font-size:2rem;margin-bottom:20px;display:block}
+.fc-title{font-family:var(--serif);font-size:1.45rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.fc-text{font-size:.87rem;line-height:1.85;color:rgba(12,12,12,.52);font-weight:300}
+.fc-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;margin-top:22px;transition:gap .3s}
+.fc-link:hover{gap:12px}
+
+/* CTA band */
+.cta-band{background:var(--dark);padding:110px 64px;display:flex;justify-content:space-between;align-items:center;gap:40px}
+.cta-left h2{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;color:var(--white);max-width:520px}
+.cta-left h2 em{font-style:italic;color:var(--accent)}
+.btn-fill-inv{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--dark);padding:18px 36px;border-radius:100px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .3s,color .3s;white-space:nowrap;flex-shrink:0}
+.btn-fill-inv:hover{background:var(--accent);color:#fff}
+
+/* footer */
+footer{background:var(--dark);color:rgba(255,255,255,.32);padding:38px 64px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem}
+.flogo{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--white)}
+.fsoc{display:flex;gap:24px}
+.fsoc a{color:rgba(255,255,255,.32);text-decoration:none;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;transition:color .3s}
+.fsoc a:hover{color:var(--accent)}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(36px);transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1)}
+.rev.in{opacity:1;transform:translateY(0)}
+.rev.d1{transition-delay:.1s}.rev.d2{transition-delay:.2s}
+
+@media(max-width:768px){
+  nav,#hero,.features,.cta-band,footer{padding-left:24px;padding-right:24px}
+  .features{grid-template-columns:1fr}
+  .cta-band{flex-direction:column;text-align:center}
+  .stats,.sh{display:none}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TechLoka</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="hero-inner">
+    <div class="pill">✦ Intelligence Reimagined</div>
+    <h1>
+      <span class="line"><span>AI That</span></span>
+      <span class="line"><span>Thinks <em>Deeper.</em></span></span>
+      <span class="line"><span>Moves Faster.</span></span>
+    </h1>
+    <p class="sub">We build next-generation AI systems that don't just process data — they understand context, adapt in real time, and redefine what's possible.</p>
+    <div class="btns">
+      <a href="services.html" class="btn-fill magnetic"><span>Explore Services</span><span class="arr">→</span></a>
+      <a href="about.html" class="btn-ghost">Learn about us ↗</a>
+    </div>
+  </div>
+  <div class="stats">
+    <div><div class="stn" data-count="200" data-sfx="+">0</div><div class="stl">Models Deployed</div></div>
+    <div><div class="stn" data-count="50" data-sfx="+">0</div><div class="stl">Enterprise Clients</div></div>
+    <div><div class="stn" data-count="99" data-sfx="%">0</div><div class="stl">Uptime</div></div>
+  </div>
+  <div class="sh"><div class="sh-line"></div>Scroll to explore</div>
+</section>
+
+<div class="mwrap"><div class="mtrack" id="mtrack"></div></div>
+
+<section class="features">
+  <div class="fc rev">
+    <span class="fc-icon">🤖</span>
+    <h3 class="fc-title">Machine Intelligence</h3>
+    <p class="fc-text">Models that don't just predict — they reason. Novel architectures blend symbolic and neural approaches for unprecedented accuracy.</p>
+    <a href="about.html" class="fc-link">Learn more <span>→</span></a>
+  </div>
+  <div class="fc rev d1">
+    <span class="fc-icon">⚡</span>
+    <h3 class="fc-title">Real-Time Systems</h3>
+    <p class="fc-text">Sub-millisecond inference at global scale. Edge-optimized runtimes that bring intelligence exactly where you need it, instantly.</p>
+    <a href="services.html" class="fc-link">Our services <span>→</span></a>
+  </div>
+  <div class="fc rev d2">
+    <span class="fc-icon">🛡️</span>
+    <h3 class="fc-title">Cyber Defense</h3>
+    <p class="fc-text">Autonomous threat detection and real-time response. AI that identifies and neutralizes zero-day threats before they cause damage.</p>
+    <a href="services.html" class="fc-link">Explore <span>→</span></a>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-left">
+    <h2>Ready to build something <em>truly remarkable</em>?</h2>
+  </div>
+  <a href="contact.html" class="btn-fill-inv">Start a Project →</a>
+</div>
+
+<footer>
+  <span class="flogo">TechLoka AI</span>
+  <span>© 2025 TechLoka. All rights reserved.</span>
+  <div class="fsoc">
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const bar=document.getElementById('bar');
+window.addEventListener('scroll',()=>{
+  bar.style.width=(window.scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let rx=0,ry=0,mx=0,my=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function raf(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(raf)})();
+document.querySelectorAll('a,button,.fc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
+});
+document.querySelectorAll('.magnetic').forEach(el=>{
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.22}px,${y*.22}px)`});
+  el.addEventListener('mouseleave',()=>el.style.transform='');
+});
+document.querySelectorAll('.fc').forEach(card=>{
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`translateY(-8px) rotateX(${-y*7}deg) rotateY(${x*7}deg)`});
+  card.addEventListener('mouseleave',()=>card.style.transform='');
+});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+const io2=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.count,sfx=el.dataset.sfx||'';let c=0;const s=t/55,ti=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(ti)}el.textContent=Math.floor(c)+sfx},16);io2.unobserve(el)})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
+const items=['Machine Intelligence','Cloud AI','Cyber Defense','Real-time','Neural Networks','Edge Computing','AI Chatbots','Deep Learning'];
+const track=document.getElementById('mtrack');
+[...items,...items,...items,...items].forEach(t=>{const d=document.createElement('div');d.className='mitem';d.innerHTML=`${t}<span class="mdot"></span>`;track.appendChild(d)});
+</script>
+</body>
+</html>

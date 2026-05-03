@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechLoka AI — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F0EDE6;--dark:#0C0C0C;--white:#FAFAF8;--accent:#FF3D00;--serif:'Fraunces',Georgia,serif;--sans:'Outfit',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:var(--sans);overflow-x:hidden;cursor:none}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;opacity:.45}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:8000;transition:width .08s linear}
+#cdot{width:7px;height:7px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cring{width:34px;height:34px;border:1.5px solid rgba(12,12,12,.45);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .3s,background .3s;mix-blend-mode:multiply}
+#cring.hov{width:58px;height:58px;border-color:var(--accent);background:rgba(255,61,0,.06)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 64px;transition:padding .4s,background .4s,backdrop-filter .4s}
+nav.scrolled{padding:16px 64px;background:rgba(240,237,230,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(12,12,12,.06)}
+.nav-logo{font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:-.02em;color:var(--dark);text-decoration:none}
+.nav-links{display:flex;gap:44px;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);text-decoration:none;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .35s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
+/* PAGE HERO */
+.page-hero{min-height:60vh;display:flex;align-items:flex-end;padding:140px 64px 80px;position:relative;overflow:hidden;background:var(--dark)}
+.ph-blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.18;animation:drift 10s ease-in-out infinite}
+.ph-b1{width:500px;height:500px;background:radial-gradient(circle,#FF3D00,#FF7700);top:-100px;right:-100px}
+.ph-b2{width:350px;height:350px;background:radial-gradient(circle,#7700FF,#0AEFFF);bottom:-60px;left:-60px;animation-delay:-5s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);border-radius:62% 38% 34% 66% / 56% 38% 62% 44%}50%{transform:translate(20px,-20px) scale(1.04);border-radius:38% 62% 66% 34% / 44% 62% 38% 56%}}
+.ph-inner{position:relative;z-index:2;width:100%}
+.ph-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:500;display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.ph-label::before{content:'';width:22px;height:1px;background:var(--accent)}
+.ph-h1{font-family:var(--serif);font-size:clamp(3.2rem,7vw,7.5rem);font-weight:900;line-height:.92;letter-spacing:-.045em;color:var(--white)}
+.ph-h1 em{font-style:italic;color:var(--accent)}
+.ph-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.45);max-width:480px;line-height:1.75;margin-top:28px}
+
+/* MISSION */
+.mission{padding:120px 64px;border-bottom:1px solid rgba(12,12,12,.08)}
+.mission-quote{font-family:var(--serif);font-size:clamp(1.9rem,4vw,3.4rem);font-style:italic;font-weight:300;line-height:1.25;letter-spacing:-.02em;color:var(--dark);max-width:800px;position:relative;padding-left:32px;border-left:3px solid var(--accent)}
+
+/* VALUES GRID */
+.values{padding:100px 64px;background:var(--white)}
+.sec-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--accent)}
+.sec-title{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:70px;max-width:600px}
+.sec-title em{font-style:italic;color:var(--accent)}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.vcard{padding:48px 42px;border-radius:22px;border:1.5px solid rgba(12,12,12,.08);position:relative;overflow:hidden;transition:border-color .35s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-style:preserve-3d}
+.vcard:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 32px 60px rgba(0,0,0,.06)}
+.vc-num{font-family:var(--serif);font-size:3.5rem;font-weight:900;color:rgba(12,12,12,.06);letter-spacing:-.04em;line-height:1;margin-bottom:18px}
+.vc-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.vc-text{font-size:.88rem;line-height:1.85;color:rgba(12,12,12,.5);font-weight:300}
+
+/* TIMELINE */
+.timeline{padding:100px 64px;background:var(--bg)}
+.tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.tl-left .sec-title{margin-bottom:36px}
+.tl-desc{font-size:.96rem;line-height:1.82;color:rgba(12,12,12,.52);font-weight:300}
+.tl-items{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:28px;padding:28px 0;border-bottom:1px solid rgba(12,12,12,.08);position:relative}
+.tl-item:first-child{border-top:1px solid rgba(12,12,12,.08)}
+.tl-dot{flex-shrink:0;margin-top:4px;width:10px;height:10px;border-radius:50%;background:rgba(12,12,12,.15);border:2px solid transparent;transition:background .3s,border-color .3s}
+.tl-item:hover .tl-dot{background:var(--accent);border-color:var(--accent)}
+.tl-year{font-family:var(--serif);font-size:.88rem;font-weight:700;color:rgba(12,12,12,.3);letter-spacing:.04em;margin-bottom:6px;transition:color .3s}
+.tl-item:hover .tl-year{color:var(--accent)}
+.tl-ev{font-size:.9rem;font-weight:500;color:var(--dark);margin-bottom:6px}
+.tl-evd{font-size:.82rem;line-height:1.7;color:rgba(12,12,12,.45);font-weight:300}
+
+/* TEAM */
+.team{padding:100px 64px;background:var(--dark)}
+.team .sec-label{color:var(--accent)}
+.team .sec-label::before{background:var(--accent)}
+.team .sec-title{color:var(--white)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:42px 34px;transition:background .3s,border-color .3s,transform .45s cubic-bezier(.16,1,.3,1)}
+.tcard:hover{background:rgba(255,255,255,.07);border-color:rgba(255,61,0,.35);transform:translateY(-6px)}
+.tc-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#FF8C00);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:24px;letter-spacing:-.02em}
+.tc-name{font-family:var(--serif);font-size:1.3rem;font-weight:700;letter-spacing:-.02em;color:var(--white);margin-bottom:6px}
+.tc-role{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:500;margin-bottom:18px}
+.tc-bio{font-size:.85rem;line-height:1.78;color:rgba(255,255,255,.45);font-weight:300}
+
+/* STATS ROW */
+.stats-row{padding:80px 64px;background:var(--accent);display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.sr-item{padding:0 40px;text-align:center;border-right:1px solid rgba(255,255,255,.15)}
+.sr-item:last-child{border-right:none}
+.sr-n{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:#fff;margin-bottom:8px}
+.sr-l{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:500}
+
+/* CTA */
+.cta-band{background:var(--bg);padding:110px 64px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-top:1px solid rgba(12,12,12,.08)}
+.cta-left h2{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;color:var(--dark);max-width:520px}
+.cta-left h2 em{font-style:italic;color:var(--accent)}
+.btn-fill{display:inline-flex;align-items:center;gap:10px;background:var(--dark);color:var(--white);padding:18px 36px;border-radius:100px;font-size:.88rem;font-weight:500;text-decoration:none;position:relative;overflow:hidden;white-space:nowrap;flex-shrink:0}
+.btn-fill::before{content:'';position:absolute;inset:0;background:var(--accent);transform:translateX(-101%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.btn-fill:hover::before{transform:translateX(0)}
+.btn-fill span{position:relative;z-index:1}
+
+footer{background:var(--dark);color:rgba(255,255,255,.32);padding:38px 64px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem}
+.flogo{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--white)}
+.fsoc{display:flex;gap:24px}
+.fsoc a{color:rgba(255,255,255,.32);text-decoration:none;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;transition:color .3s}
+.fsoc a:hover{color:var(--accent)}
+
+.rev{opacity:0;transform:translateY(36px);transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1)}
+.rev.in{opacity:1;transform:translateY(0)}
+.rev.d1{transition-delay:.1s}.rev.d2{transition-delay:.2s}.rev.d3{transition-delay:.3s}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:768px){
+  nav,.page-hero,.mission,.values,.timeline,.team,.stats-row,.cta-band,footer{padding-left:24px;padding-right:24px}
+  .values-grid{grid-template-columns:1fr}
+  .tl-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .sr-item{border-right:none;padding:20px 0}
+  .cta-band{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TechLoka</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="ph-blob ph-b1"></div>
+  <div class="ph-blob ph-b2"></div>
+  <div class="ph-inner">
+    <div class="ph-label">About Us</div>
+    <h1 class="ph-h1">We are the <em>architects</em><br>of intelligent systems.</h1>
+    <p class="ph-sub">A team of engineers, researchers, and designers obsessed with building AI that actually works — at scale, in the real world.</p>
+  </div>
+</div>
+
+<section class="mission">
+  <blockquote class="mission-quote rev">"We believe AI should be a force multiplier for human potential — not a replacement for it. Every system we build starts with that principle."</blockquote>
+</section>
+
+<section class="values">
+  <div class="sec-label">Our Values</div>
+  <h2 class="sec-title rev">Principles that<br>guide <em>everything</em></h2>
+  <div class="values-grid">
+    <div class="vcard rev">
+      <div class="vc-num">01</div>
+      <h3 class="vc-title">Relentless Precision</h3>
+      <p class="vc-text">We ship nothing we wouldn't stake our reputation on. Every model, every API, every line of code is scrutinized until it's exactly right. Good enough is never good enough.</p>
+    </div>
+    <div class="vcard rev d1">
+      <div class="vc-num">02</div>
+      <h3 class="vc-title">Human-Centered AI</h3>
+      <p class="vc-text">Technology serves people — never the other way around. We design systems that augment human capability, preserve human judgment, and protect human dignity.</p>
+    </div>
+    <div class="vcard rev">
+      <div class="vc-num">03</div>
+      <h3 class="vc-title">Open Collaboration</h3>
+      <p class="vc-text">The best ideas don't come from silos. We work transparently with clients, contribute to open research, and build partnerships grounded in mutual respect and shared ambition.</p>
+    </div>
+    <div class="vcard rev d1">
+      <div class="vc-num">04</div>
+      <h3 class="vc-title">Radical Scalability</h3>
+      <p class="vc-text">We architect for tomorrow, not just today. Every system is built to handle 10x the load we expect, so growth is a feature — not a crisis to manage.</p>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="tl-grid">
+    <div class="tl-left">
+      <div class="sec-label">Our Journey</div>
+      <h2 class="sec-title rev">From a small<br>lab to a <em>global</em> force</h2>
+      <p class="tl-desc rev">We started as a research group at IIT Bengaluru. Today we operate across 12 countries, with products that serve millions of users daily.</p>
+    </div>
+    <div class="tl-items">
+      <div class="tl-item rev">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-year">2019</div>
+          <div class="tl-ev">Founded as TechLoka Research</div>
+          <div class="tl-evd">Three researchers, one rented lab, and one very ambitious idea about the future of AI.</div>
+        </div>
+      </div>
+      <div class="tl-item rev d1">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-year">2020</div>
+          <div class="tl-ev">First Product Launch</div>
+          <div class="tl-evd">Released TL-Chat, our first conversational AI — 50,000 users in 30 days.</div>
+        </div>
+      </div>
+      <div class="tl-item rev d1">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-year">2022</div>
+          <div class="tl-ev">Series A · $18M</div>
+          <div class="tl-evd">Backed by Sequoia India and Tiger Global. Expanded to cloud AI and cybersecurity verticals.</div>
+        </div>
+      </div>
+      <div class="tl-item rev d2">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-year">2024</div>
+          <div class="tl-ev">Global Expansion</div>
+          <div class="tl-evd">Offices in Bengaluru, Singapore, London, and San Francisco. 200+ enterprise clients worldwide.</div>
+        </div>
+      </div>
+      <div class="tl-item rev d2">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-year">2025</div>
+          <div class="tl-ev">TechLoka AI v3 Platform</div>
+          <div class="tl-evd">Our most powerful release yet — a unified AI platform for enterprise intelligence at any scale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="sec-label">The Team</div>
+  <h2 class="sec-title rev">People behind<br>the <em>intelligence</em></h2>
+  <div class="team-grid">
+    <div class="tcard rev">
+      <div class="tc-avatar">AR</div>
+      <div class="tc-name">Arjun Reddy</div>
+      <div class="tc-role">CEO & Co-founder</div>
+      <p class="tc-bio">Former ML Research Lead at Google DeepMind. PhD from IIT Bombay. Obsessed with models that reason, not just pattern-match.</p>
+    </div>
+    <div class="tcard rev d1">
+      <div class="tc-avatar">PK</div>
+      <div class="tc-name">Priya Krishnan</div>
+      <div class="tc-role">CTO & Co-founder</div>
+      <p class="tc-bio">Ex-AWS infrastructure architect. Built distributed systems serving 400M+ users. Believes reliability is a design choice.</p>
+    </div>
+    <div class="tcard rev d2">
+      <div class="tc-avatar">SM</div>
+      <div class="tc-name">Sameer Mehta</div>
+      <div class="tc-role">Head of AI Research</div>
+      <p class="tc-bio">Published 40+ papers in NeurIPS and ICML. Pioneered our hybrid neural-symbolic architecture. Drinks too much coffee.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="sr-item rev"><div class="sr-n" data-count="6" data-sfx="+">0</div><div class="sr-l">Years of Innovation</div></div>
+  <div class="sr-item rev d1"><div class="sr-n" data-count="120" data-sfx="+">0</div><div class="sr-l">Team Members</div></div>
+  <div class="sr-item rev d1"><div class="sr-n" data-count="12" data-sfx="">0</div><div class="sr-l">Countries Served</div></div>
+  <div class="sr-item rev d2"><div class="sr-n" data-count="40" data-sfx="+">0</div><div class="sr-l">Research Papers</div></div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-left">
+    <h2>Want to work with us? Let's build something <em>great</em> together.</h2>
+  </div>
+  <a href="contact.html" class="btn-fill"><span>Get In Touch →</span></a>
+</div>
+
+<footer>
+  <span class="flogo">TechLoka AI</span>
+  <span>© 2025 TechLoka. All rights reserved.</span>
+  <div class="fsoc">
+    <a href="#">Twitter</a><a href="#">LinkedIn</a><a href="#">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const bar=document.getElementById('bar');
+window.addEventListener('scroll',()=>{
+  bar.style.width=(window.scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let rx=0,ry=0,mx=0,my=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function raf(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(raf)})();
+document.querySelectorAll('a,.vcard,.tcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
+});
+document.querySelectorAll('.vcard,.tcard').forEach(card=>{
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`translateY(-6px) rotateX(${-y*6}deg) rotateY(${x*6}deg)`});
+  card.addEventListener('mouseleave',()=>card.style.transform='');
+});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+const io2=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.count,sfx=el.dataset.sfx||'';let c=0;const s=t/55,ti=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(ti)}el.textContent=Math.floor(c)+sfx},16);io2.unobserve(el)})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechLoka AI — Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F0EDE6;--dark:#0C0C0C;--white:#FAFAF8;--accent:#FF3D00;--serif:'Fraunces',Georgia,serif;--sans:'Outfit',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:var(--sans);overflow-x:hidden;cursor:none}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;opacity:.45}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:8000;transition:width .08s linear}
+#cdot{width:7px;height:7px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cring{width:34px;height:34px;border:1.5px solid rgba(12,12,12,.45);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .3s,background .3s;mix-blend-mode:multiply}
+#cring.hov{width:58px;height:58px;border-color:var(--accent);background:rgba(255,61,0,.06)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 64px;transition:padding .4s,background .4s,backdrop-filter .4s}
+nav.scrolled{padding:16px 64px;background:rgba(240,237,230,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(12,12,12,.06)}
+.nav-logo{font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:-.02em;color:var(--dark);text-decoration:none}
+.nav-links{display:flex;gap:44px;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);text-decoration:none;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--accent);transition:width .35s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
+/* PAGE HERO */
+.page-hero{min-height:55vh;display:flex;align-items:flex-end;padding:140px 64px 80px;position:relative;overflow:hidden}
+.ph-accent{position:absolute;top:0;right:0;width:45%;height:100%;background:var(--accent);clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%)}
+.ph-inner{position:relative;z-index:2;width:100%}
+.ph-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.ph-label::before{content:'';width:22px;height:1px;background:var(--accent)}
+.ph-h1{font-family:var(--serif);font-size:clamp(3.2rem,7vw,7.5rem);font-weight:900;line-height:.92;letter-spacing:-.045em;color:var(--dark)}
+.ph-h1 em{font-style:italic;color:var(--accent)}
+.ph-sub{font-size:1rem;font-weight:300;color:rgba(12,12,12,.52);max-width:420px;line-height:1.75;margin-top:28px}
+
+/* BIG SERVICE LIST */
+.srv-section{padding:100px 64px;background:var(--dark)}
+.sec-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--accent)}
+.sec-title{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:70px;max-width:580px;color:var(--white)}
+.sec-title em{font-style:italic;color:var(--accent)}
+
+.srv-list{display:flex;flex-direction:column}
+.srv{display:flex;align-items:center;justify-content:space-between;padding:36px 0;border-bottom:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden}
+.srv:first-child{border-top:1px solid rgba(255,255,255,.07)}
+.srv::before{content:'';position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .52s cubic-bezier(.16,1,.3,1);z-index:0}
+.srv:hover::before{transform:scaleX(1)}
+.srv-left{display:flex;align-items:center;gap:28px;position:relative;z-index:1}
+.srv-num{font-family:var(--serif);font-size:.82rem;color:rgba(255,255,255,.2);font-weight:300;transition:color .3s;width:30px;flex-shrink:0}
+.srv:hover .srv-num{color:rgba(255,255,255,.5)}
+.srv-name{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.6rem);font-weight:700;letter-spacing:-.02em;color:var(--white);transition:color .3s}
+.srv-tags{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.srv-tag{font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.3);background:rgba(255,255,255,.06);padding:4px 12px;border-radius:100px;transition:all .3s}
+.srv:hover .srv-tag{color:rgba(255,255,255,.85);background:rgba(255,255,255,.14)}
+.srv-arrow{position:relative;z-index:1;font-size:1.4rem;color:rgba(255,255,255,.2);transition:transform .3s,color .3s}
+.srv:hover .srv-arrow{transform:translateX(8px);color:rgba(255,255,255,.9)}
+
+/* SERVICE DETAIL CARDS */
+.detail-section{padding:100px 64px;background:var(--bg)}
+.detail-section .sec-label{color:var(--accent)}
+.detail-section .sec-title{color:var(--dark)}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.dcard{background:var(--white);border-radius:22px;overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s;transform-style:preserve-3d}
+.dcard:hover{transform:translateY(-8px);box-shadow:0 40px 80px rgba(0,0,0,.08)}
+.dcard-top{padding:42px 38px 32px;position:relative}
+.dcard-top::before{content:'';position:absolute;bottom:0;left:38px;right:38px;height:1px;background:rgba(12,12,12,.08)}
+.dcard-num{font-family:var(--serif);font-size:4rem;font-weight:900;color:rgba(12,12,12,.06);letter-spacing:-.05em;line-height:1;margin-bottom:14px}
+.dcard-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+.dcard-sub{font-size:.82rem;font-weight:400;color:rgba(12,12,12,.45);letter-spacing:.04em;text-transform:uppercase}
+.dcard-body{padding:28px 38px 42px}
+.dcard-text{font-size:.87rem;line-height:1.85;color:rgba(12,12,12,.52);font-weight:300;margin-bottom:24px}
+.dcard-features{display:flex;flex-direction:column;gap:10px}
+.feat{display:flex;align-items:center;gap:10px;font-size:.84rem;font-weight:400;color:rgba(12,12,12,.7)}
+.feat::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+
+/* TECH STACK */
+.stack-section{padding:80px 64px;background:var(--dark)}
+.stack-section .sec-label{color:var(--accent)}
+.stack-section .sec-label::before{background:var(--accent)}
+.stack-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;letter-spacing:-.03em;color:var(--white);margin-bottom:56px}
+.stack-title em{font-style:italic;color:var(--accent)}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stack-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px 24px;text-align:center;transition:border-color .3s,background .3s,transform .4s}
+.stack-item:hover{border-color:rgba(255,61,0,.4);background:rgba(255,61,0,.06);transform:translateY(-4px)}
+.stack-icon{font-size:2rem;margin-bottom:12px}
+.stack-name{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.04em}
+
+/* PRICING CTA */
+.pricing-cta{padding:110px 64px;background:var(--accent);display:flex;justify-content:space-between;align-items:center;gap:40px}
+.pc-left h2{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;color:#fff;max-width:500px}
+.pc-left p{font-size:.96rem;font-weight:300;color:rgba(255,255,255,.7);margin-top:18px;max-width:400px;line-height:1.7}
+.btn-inv{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--dark);padding:18px 36px;border-radius:100px;font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .3s,color .3s,transform .3s}
+.btn-inv:hover{background:var(--dark);color:#fff;transform:translateY(-2px)}
+
+footer{background:var(--dark);color:rgba(255,255,255,.32);padding:38px 64px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem}
+.flogo{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--white)}
+.fsoc{display:flex;gap:24px}
+.fsoc a{color:rgba(255,255,255,.32);text-decoration:none;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;transition:color .3s}
+.fsoc a:hover{color:var(--accent)}
+
+.rev{opacity:0;transform:translateY(36px);transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1)}
+.rev.in{opacity:1;transform:translateY(0)}
+.rev.d1{transition-delay:.1s}.rev.d2{transition-delay:.2s}
+.rev-l{opacity:0;transform:translateX(-32px);transition:opacity .7s,transform .7s cubic-bezier(.16,1,.3,1)}
+.rev-l.in{opacity:1;transform:translateX(0)}
+
+@media(max-width:768px){
+  nav,.page-hero,.srv-section,.detail-section,.stack-section,.pricing-cta,footer{padding-left:24px;padding-right:24px}
+  .detail-grid{grid-template-columns:1fr}
+  .stack-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-cta{flex-direction:column;text-align:center}
+  .ph-accent{width:0}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TechLoka</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="ph-accent"></div>
+  <div class="ph-inner">
+    <div class="ph-label">What We Do</div>
+    <h1 class="ph-h1">Services that<br><em>move</em> the needle.</h1>
+    <p class="ph-sub">From conversational AI to autonomous cyber defense — we build products that deliver measurable impact, fast.</p>
+  </div>
+</div>
+
+<section class="srv-section">
+  <div class="sec-label">Our Services</div>
+  <h2 class="sec-title rev">Three pillars of<br><em>modern</em> AI capability</h2>
+  <div class="srv-list">
+    <div class="srv rev-l">
+      <div class="srv-left">
+        <span class="srv-num">01</span>
+        <span class="srv-name scramble">AI Chatbots</span>
+      </div>
+      <div class="srv-tags">
+        <span class="srv-tag">NLP</span>
+        <span class="srv-tag">Conversational AI</span>
+        <span class="srv-tag">Real-time</span>
+      </div>
+      <span class="srv-arrow">→</span>
+    </div>
+    <div class="srv rev-l d1">
+      <div class="srv-left">
+        <span class="srv-num">02</span>
+        <span class="srv-name scramble">Cloud AI Infrastructure</span>
+      </div>
+      <div class="srv-tags">
+        <span class="srv-tag">Scalable</span>
+        <span class="srv-tag">Edge Computing</span>
+        <span class="srv-tag">MLOps</span>
+      </div>
+      <span class="srv-arrow">→</span>
+    </div>
+    <div class="srv rev-l d2">
+      <div class="srv-left">
+        <span class="srv-num">03</span>
+        <span class="srv-name scramble">Cyber Defense AI</span>
+      </div>
+      <div class="srv-tags">
+        <span class="srv-tag">Threat Detection</span>
+        <span class="srv-tag">Zero-day</span>
+        <span class="srv-tag">Autonomous</span>
+      </div>
+      <span class="srv-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="sec-label">Deep Dive</div>
+  <h2 class="sec-title rev">Everything you need,<br><em>nothing</em> you don't</h2>
+  <div class="detail-grid">
+    <div class="dcard rev">
+      <div class="dcard-top">
+        <div class="dcard-num">01</div>
+        <h3 class="dcard-title">AI Chatbots</h3>
+        <div class="dcard-sub">Conversational Intelligence</div>
+      </div>
+      <div class="dcard-body">
+        <p class="dcard-text">Deploy intelligent conversational agents that understand context, remember history, and resolve issues without human intervention — 24/7, at any scale.</p>
+        <div class="dcard-features">
+          <div class="feat">Multi-language support (110+ languages)</div>
+          <div class="feat">Context-aware dialogue management</div>
+          <div class="feat">CRM & helpdesk integration</div>
+          <div class="feat">Real-time sentiment analysis</div>
+          <div class="feat">Custom persona & tone controls</div>
+        </div>
+      </div>
+    </div>
+    <div class="dcard rev d1">
+      <div class="dcard-top">
+        <div class="dcard-num">02</div>
+        <h3 class="dcard-title">Cloud AI</h3>
+        <div class="dcard-sub">Infrastructure & MLOps</div>
+      </div>
+      <div class="dcard-body">
+        <p class="dcard-text">From model training pipelines to production-grade inference APIs — we build and manage the full AI stack so your team can focus on what they do best.</p>
+        <div class="dcard-features">
+          <div class="feat">Auto-scaling GPU clusters</div>
+          <div class="feat">Model versioning & A/B testing</div>
+          <div class="feat">99.99% SLA with global redundancy</div>
+          <div class="feat">CI/CD for ML pipelines</div>
+          <div class="feat">Data governance & compliance</div>
+        </div>
+      </div>
+    </div>
+    <div class="dcard rev d2">
+      <div class="dcard-top">
+        <div class="dcard-num">03</div>
+        <h3 class="dcard-title">Cyber Defense</h3>
+        <div class="dcard-sub">Autonomous Security AI</div>
+      </div>
+      <div class="dcard-body">
+        <p class="dcard-text">AI-driven threat detection that operates at machine speed — identifying and neutralizing attacks in milliseconds, before they become breaches.</p>
+        <div class="dcard-features">
+          <div class="feat">Zero-day exploit detection</div>
+          <div class="feat">Autonomous incident response</div>
+          <div class="feat">Behavioral anomaly detection</div>
+          <div class="feat">SIEM & SOC integration</div>
+          <div class="feat">Continuous compliance monitoring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stack-section">
+  <div class="sec-label">Technology Stack</div>
+  <h2 class="stack-title rev">Powered by the <em>best</em><br>tools in the industry</h2>
+  <div class="stack-grid">
+    <div class="stack-item rev"><div class="stack-icon">🧠</div><div class="stack-name">PyTorch</div></div>
+    <div class="stack-item rev d1"><div class="stack-icon">☁️</div><div class="stack-name">AWS / GCP</div></div>
+    <div class="stack-item rev d1"><div class="stack-icon">🐳</div><div class="stack-name">Kubernetes</div></div>
+    <div class="stack-item rev d2"><div class="stack-icon">⚡</div><div class="stack-name">Ray Serve</div></div>
+    <div class="stack-item rev"><div class="stack-icon">🔗</div><div class="stack-name">LangChain</div></div>
+    <div class="stack-item rev d1"><div class="stack-icon">📊</div><div class="stack-name">MLflow</div></div>
+    <div class="stack-item rev d1"><div class="stack-icon">🛡️</div><div class="stack-name">SIEM Tools</div></div>
+    <div class="stack-item rev d2"><div class="stack-icon">🔍</div><div class="stack-name">Vector DBs</div></div>
+  </div>
+</section>
+
+<div class="pricing-cta">
+  <div class="pc-left">
+    <h2>Ready to get started?</h2>
+    <p>Talk to our team. We'll scope your project, recommend the right approach, and get you moving fast — no fluff, no sales pressure.</p>
+  </div>
+  <a href="contact.html" class="btn-inv">Book a Discovery Call →</a>
+</div>
+
+<footer>
+  <span class="flogo">TechLoka AI</span>
+  <span>© 2025 TechLoka. All rights reserved.</span>
+  <div class="fsoc">
+    <a href="#">Twitter</a><a href="#">LinkedIn</a><a href="#">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const bar=document.getElementById('bar');
+window.addEventListener('scroll',()=>{
+  bar.style.width=(window.scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%';
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let rx=0,ry=0,mx=0,my=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function raf(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(raf)})();
+document.querySelectorAll('a,.dcard,.stack-item,.srv').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
+});
+document.querySelectorAll('.dcard').forEach(card=>{
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`translateY(-8px) rotateX(${-y*5}deg) rotateY(${x*5}deg)`});
+  card.addEventListener('mouseleave',()=>card.style.transform='');
+});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.1});
+document.querySelectorAll('.rev,.rev-l').forEach(el=>io.observe(el));
+
+/* Scramble effect */
+class Scramble{
+  constructor(el){this.el=el;this.orig=el.textContent;this.chars='!<>-_\\/[]{}—=+*^?#';this.timer=null}
+  run(){clearInterval(this.timer);let i=0;const o=this.orig;this.timer=setInterval(()=>{this.el.textContent=o.split('').map((c,idx)=>idx<i?c:this.chars[Math.floor(Math.random()*this.chars.length)]).join('');if(i>=o.length)clearInterval(this.timer);i+=.5},28)}
+  reset(){clearInterval(this.timer);this.el.textContent=this.orig}
+}
+document.querySelectorAll('.scramble').forEach(el=>{
+  const sc=new Scramble(el);
+  el.closest('.srv').addEventListener('mouseenter',()=>sc.run());
+  el.closest('.srv').addEventListener('mouseleave',()=>sc.reset());
+});
+</script>
+</body>
+</html>
