@@ -119,3 +119,88 @@ free memory ?
 
 ### similarly need to run backend also using - npm start 
 ### update your package.json file.
+
+## Creating Server Using HTTP module !
+
+### Disadvantage of creating Server using HTTP Module 
+
+- Routing is very difficult ( req.url = "/user/101&&page=2" )
+
+- Developing Rest API (Application program interface (entry point to backend ))
+
+- Providing Modularity Code is difficult 
+
+# Due to these disadvantages alternative is :
+
+## Express JS : it is Node JS Framework 
+
+##### Create express app and develop Rest API 
+
+- install required dependency/ packages (npm i express dotenv)
+
+##### What is PostMan Tool ?
+
+- ### It is used to Test the PostMan Tool 
+
+#### Develop CRUD REST API Using Express JS ? 
+
+- Create - new user/emp/order/product       - POST 
+- Read - users/employees/orders/product     - GET 
+- Update - user by id/emp by id/order by id - PUT
+- Delete - user by id/emp by id          - Delete
+
+# Root 
+- API Information :
+- usage : Application Root Request
+- Rest API URL : http://127.0.0.1:8080/
+- Method Type : GET 
+- Required Fields : None 
+- Access Type :Public
+
+## Method : Post
+
+- usage : Create New User
+- Rest API URL : http://127.0.0.1:8080/create
+- Method Type : Post
+- Required Fields : Usernaem, email, gender or none 
+- Access Type :Public
+
+## Method : GET
+
+- usage : Read / Fetch User
+- Rest API URL : http://127.0.0.1:8080/
+- Method Type : GET 
+- Required Fields : None 
+- Access Type :Public
+
+# Method : PUT 
+
+- usage : Update User
+- Rest API URL : http://127.0.0.1:8080/
+- Method Type : Put 
+- Required Fields : None 
+- Access Type :Public
+
+# Method : Delete
+
+- usage : Delete User 
+- Rest API URL : http://127.0.0.1:8080/
+- Method Type : Delete 
+- Required Fields : None 
+- Access Type :Public
+
+------------------------------------------------
+
+# 1
+- usage : Delete Product
+- Rest API URL : http://127.0.0.1:8080/
+- Method Type : Delete 
+- Required Fields : None 
+- Access Type :Public
+----------------------------------------------------
+# 2
+- usage : Update Product
+- Rest API URL : http://127.0.0.1:8080/
+- Method Type : PUT
+- Required Fields : None 
+- Access Type :Public
