@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { request, response } from 'express'
 
 // Create express app 
 let app = express()
