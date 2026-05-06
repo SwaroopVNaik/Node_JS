@@ -206,3 +206,59 @@ free memory ?
 - Access Type :Public
 
 -----------------------------------------------------
+CRUD Operation - on employee json file data
+
+/*
+usage : create new employee 
+Rest API URL : http://127.0.0.1:8080/emp/create
+Method Type : POST
+Required Fields : eid, ename, esal, gender
+Access Type : Public
+*/
+
+/*
+usage : read emp by id
+REST API URL : http://127.0.0.1:8080/emp/101
+Method Type: GET 
+Required Fields : None 
+Access Type : Public 
+*/ 
+
+/*
+Usage :Read all Employees 
+REST API URL : http://127.0.0.1:8080/emp/
+Method Type : GET 
+Required Fields : None
+Access Type : Public
+/*
+
+/*
+Usage : Update emp by id
+REST API URL :  http://127.0.0.1:8080/emp/101 
+Method Type : PUT
+Required Fileds : None 
+Access Type : Public 
+*/
+
+/*
+Usage : delete employeee by ID 
+REST API URL :  http://127.0.0.1:8080/emp/101
+Method Type : DELETE
+Required Fileds : None 
+Access Type : Public 
+*/
+
+------------------------------------------------------
+POST - http://127.0.0.1:8080/emp/create
+GET - http://127.0.0.1:8080/emp/101
+GET - http://127.0.0.1:8080/emp/
+PUT - http://127.0.0.1:8080/emp/101
+DELETE - http://127.0.0.1:8080/emp/101
+
+
+## The Request URL had 3 Parts 
+- Request URL - contains Request ( Domian name , Path Para, Query Para)
+- Request Body  - Contains Body (form data)
+- Request Header - contains Header (JWT - tokens auth )
+
+
