@@ -261,4 +261,15 @@ DELETE - http://127.0.0.1:8080/emp/101
 - Request Body  - Contains Body (form data)
 - Request Header - contains Header (JWT - tokens auth )
 
+---------------------------------------------------------------------------
+# JSON CRUD Operations
 
+### Installing dependencies
+
+- ## npm init -y
+- ## npm install express express morgan dotenv nodemon
+
+# http://127.0.0.1:8080/user/create - POST
+# http://127.0.0.1:8080/user/all - GET
+# http://127.0.0.1:8080/user/update/101 - PUT
+# http://127.0.0.1:8080/user/delete/101 - DELETE
