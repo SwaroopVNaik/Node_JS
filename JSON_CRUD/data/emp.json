@@ -1,0 +1,52 @@
+[
+  {
+    "eid": 1, 
+    "ename": "Alice", 
+    "esal": 52000, 
+    "gender": "Female"
+  },
+  {"eid": 2, 
+  "ename": "Bob", 
+  "esal": 48000, 
+  "gender": "Male"
+},
+  {"eid": 3, 
+  "ename": "Charlie", 
+  "esal": 61000, 
+  "gender": "Male"
+},
+  {"eid": 4, 
+  "ename": "Diana", 
+  "esal": 57000, 
+  "gender": "Female"
+},
+  {"eid": 5, 
+  "ename": "Ethan", 
+  "esal": 45000, 
+  "gender": "Male"
+},
+  {"eid": 6, 
+  "ename": "Fiona", 
+  "esal": 59000, 
+  "gender": "Female"
+},
+  {"eid": 7, 
+  "ename": "George", 
+  "esal": 53000, 
+  "gender": "Male"
+},
+  {"eid": 8, 
+  "ename": "Hannah", 
+  "esal": 62000, 
+  "gender": "Female"
+},
+  {"eid": 9, 
+  "ename": "Ian", 
+  "esal": 47000, 
+  "gender": "Male"},
+  {"eid": 10, 
+  "ename": "Jasmine", 
+  "esal": 60000,
+  "gender": "Female"
+}
+]
