@@ -49,7 +49,7 @@ app.post("/create", (Request, Response)=>{
 ## Method : GET
 
 - usage : Read / Fetch User
-- Rest API URL : http://127.0.0.1:8080/
+- Rest API URL : http://127.0.0.1:8080/user/
 - Method Type : GET 
 - Required Fields : None 
 - Access Type :Public
@@ -66,7 +66,7 @@ app.get("/read", (Request, Response)=>{
 # Method : PUT 
 
 - usage : Update User
-- Rest API URL : http://127.0.0.1:8080/
+- Rest API URL : http://127.0.0.1:8080/update
 - Method Type : Put 
 - Required Fields : None 
 - Access Type :Public
@@ -84,7 +84,7 @@ app.put("/update", (Request, Response)=>{
 # Method : Delete
 
 - usage : Delete User 
-- Rest API URL : http://127.0.0.1:8080/
+- Rest API URL : http://127.0.0.1:8080/delete
 - Method Type : Delete 
 - Required Fields : None 
 - Access Type :Public
