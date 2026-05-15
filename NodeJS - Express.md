@@ -249,11 +249,13 @@ Access Type : Public
 */
 
 ------------------------------------------------------
+```
 POST - http://127.0.0.1:8080/emp/create
 GET - http://127.0.0.1:8080/emp/101
 GET - http://127.0.0.1:8080/emp/
 PUT - http://127.0.0.1:8080/emp/101
 DELETE - http://127.0.0.1:8080/emp/101
+```
 
 
 ## The Request URL had 3 Parts 
@@ -269,7 +271,44 @@ DELETE - http://127.0.0.1:8080/emp/101
 - ## npm init -y
 - ## npm install express express morgan dotenv nodemon
 
-# http://127.0.0.1:8080/user/create - POST
-# http://127.0.0.1:8080/user/all - GET
-# http://127.0.0.1:8080/user/update/101 - PUT
-# http://127.0.0.1:8080/user/delete/101 - DELETE
+```
+http://127.0.0.1:8080/user/create - POST
+http://127.0.0.1:8080/user/all - GET
+http://127.0.0.1:8080/user/update/101 - PUT
+http://127.0.0.1:8080/user/delete/101 - DELETE
+```
+-----------------------------------------------------------------------------------------------
+
+## Node js - Routing ? 
+
+## Application Root 
+```
+http://127.0.0.1:8080/      - GET
+```
+
+## User Module API
+
+```
+http://127.0.0.1:8080/user/create   - POST
+http://127.0.0.1:8080/user/read     - GET
+http://127.0.0.1:8080/user/101      - GET
+http://127.0.0.1:8080/user/update/101  - PUT
+http://127.0.0.1:8080/user/Delete/101  - DELETE
+```
+
+## Product module 
+
+```URL
+http://127.0.0.1:8080/product/create      - POST
+http://127.0.0.1:8080/product/read        - GET
+http://127.0.0.1:8080/product/101         - GET
+http://127.0.0.1:8080/product/update/101  - PUT
+http://127.0.0.1:8080/product/Delete/101  - DELETE
+```
+
+# dependency -
+
+- ## npm i express dotenv morgan
+
+---------------------------------------------------------------------------------------------------
+
